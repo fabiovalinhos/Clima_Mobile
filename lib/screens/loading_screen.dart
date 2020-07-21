@@ -2,7 +2,7 @@ import 'package:clima/services/location.dart';
 import 'package:clima/services/networking.dart';
 import 'package:flutter/material.dart';
 
-const apiKey = '0998c86f92e05740044fa7296a610bb9';
+const apiKey = '';
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -32,6 +32,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
         'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey');
 
     var weatherData = await networkHelper.getData();
+    print(weatherData);
   }
 
   @override
