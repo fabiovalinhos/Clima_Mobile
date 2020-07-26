@@ -1,11 +1,20 @@
 import 'package:clima/services/location.dart';
 import 'package:clima/services/networking.dart';
 
-//Tem que ficar omisso
+//Tem que ficar omisso. Qualquer coisa eu pego no Open Weather Map
 const apiKey = '';
 const openWeatherMapUrl = 'https://api.openweathermap.org/data/2.5/weather';
 
 class WeatherModel {
+  Future<dynamic> getCityWeather(String cityName) async {
+    var url = '$openWeatherMapUrl?q=$cityName&appid=$apiKey&units=metric';
+
+    NetworkHelper networkHelper = NetworkHelper(url);
+
+    var weatherData = await networkHelper.getData();
+    return weatherData;
+  }
+
   Future<dynamic> getLocationWeather() async {
     Location location = Location();
 
