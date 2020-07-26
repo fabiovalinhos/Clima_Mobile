@@ -8,7 +8,7 @@ class NetworkHelper {
 
   Future getData() async {
     http.Response response = await http.get(url);
-    print(response.statusCode);
+    print("networking.dart - Status Code: ${response.statusCode}");
 
     if (response.statusCode == 200) {
       String data = response.body;
